@@ -26,6 +26,7 @@ boot build
 ```
 
 App is compiled into `target/` folder. Serve `index.html` with Nginx please.
+You should see this http://repo.respo.site/minimal-respo/ .
 
 ### License
 
