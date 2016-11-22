@@ -5,13 +5,13 @@
   ; source code
   :resource-paths #{"src"}
 
-  :dependencies '[[org.clojure/clojurescript "1.9.216"     :scope "test"]
-                  [org.clojure/clojure       "1.8.0"       :scope "test"]
+  :dependencies '[[org.clojure/clojure       "1.8.0"       :scope "test"]
+                  [org.clojure/clojurescript "1.9.293"     :scope "test"]
                   [adzerk/boot-cljs          "1.7.228-1"   :scope "test"]
-                  [adzerk/boot-reload        "0.4.11"      :scope "test"]
+                  [adzerk/boot-reload        "0.4.13"      :scope "test"]
                   [mvc-works/hsl             "0.1.2"]
-                  [respo/ui                  "0.1.2"]
-                  [respo                     "0.3.25"]])
+                  [respo/ui                  "0.1.5"]
+                  [respo                     "0.3.32"]])
 
 (require '[adzerk.boot-cljs   :refer [cljs]]
          '[adzerk.boot-reload :refer [reload]])
@@ -25,7 +25,7 @@
     (cljs :compiler-options {:language-in :ecmascript5})
     (target)))
 
-; build and minify code
+; build and optimize code
 (deftask build-advanced []
   (comp
     (cljs :optimizations :advanced
