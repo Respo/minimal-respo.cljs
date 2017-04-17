@@ -1,21 +1,24 @@
 
 (ns minimal-respo.main
   (:require [respo.core :refer [render! clear-cache!]]
+            [respo.cursor :refer [mutate with-cursor]]
             [respo-ui.style :as ui]
             [respo.alias :refer [create-comp div]]
-            [respo.comp.text :refer [comp-text]]))
-
-; states tree, make sure to use {}
-(defonce ref-states (atom {}))
+            [respo.comp.text :refer [comp-text]]
+            [respo.comp.space :refer [comp-space]]))
 
 ; where you put data
-(defonce ref-store (atom 0))
+(defonce ref-store
+  (atom
+    {:point 0
+     :states {}}))
 
 ; pure function to update store
 (defn updater [store op op-data]
   ; use `case` to detect action types
   (case op
-    :inc (+ store op-data)
+    :states (update store :states (mutate op-data))
+    :inc (update store :point (fn [point] (+ point op-data)))
     store))
 
 ; connect user actions to updater
@@ -31,7 +34,7 @@
 
 ; button renderer
 (defn render-button []
-  (fn [state mutate!]
+  (fn [cursor]
     (div {:style ui/button
           ; event handler
           :event {:click on-click}}
@@ -42,10 +45,12 @@
 
 ; container renderer
 (defn render-container [store]
-  (fn [state mutate!]
+  (fn [cursor]
     (div {}
       ; insert text
-      (comp-text store nil)
+      (comp-text (:point store) nil)
+      ; some spaces
+      (comp-space 8 nil)
       ; reuse child component
       (comp-button))))
 
@@ -60,14 +65,13 @@
     (render!
       ; render component tree into virtual DOM tree
       (comp-container @ref-store)
-      target dispatch! ref-states)))
+      target dispatch!)))
 
 (defn -main! []
   (enable-console-print!)
   (render-app!)
   ; watch updates and do rerender
   (add-watch ref-store :changes render-app!)
-  (add-watch ref-states :changes render-app!)
   (println "app started!"))
 
 (set! (.-onload js/window) -main!)

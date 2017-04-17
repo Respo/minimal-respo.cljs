@@ -6,12 +6,12 @@
   :resource-paths #{"src"}
 
   :dependencies '[[org.clojure/clojure       "1.8.0"       :scope "test"]
-                  [org.clojure/clojurescript "1.9.473"     :scope "test"]
+                  [org.clojure/clojurescript "1.9.521"     :scope "test"]
                   [adzerk/boot-cljs          "1.7.228-1"   :scope "test"]
                   [adzerk/boot-reload        "0.4.13"      :scope "test"]
                   [mvc-works/hsl             "0.1.2"]
-                  [respo/ui                  "0.1.6"]
-                  [respo                     "0.3.38"]])
+                  [respo/ui                  "0.1.9"]
+                  [respo                     "0.4.2"]])
 
 (require '[adzerk.boot-cljs   :refer [cljs]]
          '[adzerk.boot-reload :refer [reload]])
