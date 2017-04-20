@@ -2,7 +2,7 @@
 Minimal Respo App
 ----
 
-A standalone exmaple sorted out from: https://github.com/mvc-works/respo-spa-example
+A standalone exmaple sorted out from: https://github.com/Respo/respo-examples
 
 By reading this demo you can learn how to use Respo.
 
