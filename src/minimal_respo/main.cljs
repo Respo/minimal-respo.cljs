@@ -32,30 +32,28 @@
 (defn on-click [e dispatch!]
   (dispatch! :inc 1))
 
-; button renderer
-(defn render-button []
-  (fn [cursor]
-    (div {:style ui/button
-          ; event handler
-          :event {:click on-click}}
-      (comp-text "inc" nil))))
-
 ; button component
-(def comp-button (create-comp :button render-button))
-
-; container renderer
-(defn render-container [store]
-  (fn [cursor]
-    (div {}
-      ; insert text
-      (comp-text (:point store) nil)
-      ; some spaces
-      (comp-space 8 nil)
-      ; reuse child component
-      (comp-button))))
+(def comp-button
+  (create-comp :button
+    (fn []
+      (fn [cursor]
+        (div {:style ui/button
+              ; event handler
+              :event {:click on-click}}
+          (comp-text "inc" nil))))))
 
 ; container component
-(def comp-container (create-comp :container render-container))
+(def comp-container
+  (create-comp :container
+    (fn container [store]
+      (fn [cursor]
+        (div {}
+          ; insert text
+          (comp-text (:point store) nil)
+          ; some spaces
+          (comp-space 8 nil)
+          ; reuse child component
+          (comp-button))))))
 
 ; mount and update components
 
