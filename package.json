@@ -7,10 +7,9 @@
     "once": "shadow-cljs --build app --once",
     "watch": "shadow-cljs --build app --dev",
     "html": "mkdir -p target && cp assets/index.html target/",
-    "serve": "http-server target/",
-    "dev": "yarn html && yarn watch",
+    "serve": "yarn html && http-server target/",
     "del": "rm -r target/*",
-    "compile": "yarn html && yarn once && yarn serve"
+    "compile": "yarn del && yarn once && yarn serve"
   },
   "repository": {
     "type": "git",

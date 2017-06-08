@@ -75,9 +75,9 @@
 (set! (.-onload js/window) main!)
 
 ; this function handles code updates
-(defn on-jsload! []
+(defn reload! []
   ; clear rendering caches of virtual DOM
   (clear-cache!)
   ; rerender with diff/patch without rendering caches of virtual DOM
   (render-app!)
-  (println "code updated."))
+  (println "Code updated."))
