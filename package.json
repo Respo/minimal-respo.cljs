@@ -1,0 +1,35 @@
+{
+  "name": "minimal-respo",
+  "version": "0.1.0",
+  "description": "Minimal Respo App ----",
+  "main": "webpack.config.js",
+  "scripts": {
+    "once": "shadow-cljs --build app --once",
+    "watch": "shadow-cljs --build app --dev",
+    "html": "mkdir -p target && cp assets/index.html target/",
+    "serve": "http-server target/",
+    "dev": "yarn html && yarn watch",
+    "del": "rm -r target/*",
+    "compile": "yarn html && yarn once && yarn serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Respo/minimal-respo.git"
+  },
+  "keywords": [
+    "Respo"
+  ],
+  "author": "jiyinyiyong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Respo/minimal-respo/issues"
+  },
+  "homepage": "https://github.com/Respo/minimal-respo#readme",
+  "devDependencies": {
+    "http-server": "^0.10.0",
+    "shadow-cljs": "^0.9.4",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5",
+    "ws": "^3.0.0"
+  }
+}

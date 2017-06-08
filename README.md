@@ -8,24 +8,27 @@ By reading this demo you can learn how to use Respo.
 
 For docs, please read http://respo.site/
 
+This project is built on top of [shadow-cljs](https://github.com/thheller/shadow-cljs).
+
 ### How to run it
 
-* Install [Java](https://support.apple.com/kb/dl1572?locale=en_HK)
-* Install [Boot](http://boot-clj.com/)
+* Install [Java](https://support.apple.com/kb/dl1572?locale=en_HK) or [`node-jre`](https://www.npmjs.com/package/node-jre)
 
-Start development mode:
-
-```bash
-boot dev
-```
-
-Run build mode:
+Run in development:
 
 ```bash
-boot build
+yarn
+yarn dev
+# another tty
+yarn serve # web server on localhost:8080
 ```
 
-App is compiled into `target/` folder. Serve `index.html` with Nginx please.
+Compile project:
+
+```bash
+yarn compile # web server on localhost:8080
+```
+
 You should see this http://repo.respo.site/minimal-respo/ .
 
 ### License

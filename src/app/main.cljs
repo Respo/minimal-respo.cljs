@@ -1,5 +1,5 @@
 
-(ns minimal-respo.main
+(ns app.main
   (:require [respo.core :refer [render! clear-cache!]]
             [respo.cursor :refer [mutate with-cursor]]
             [respo-ui.style :as ui]
@@ -65,14 +65,14 @@
       (comp-container @ref-store)
       target dispatch!)))
 
-(defn -main! []
+(defn main! []
   (enable-console-print!)
   (render-app!)
   ; watch updates and do rerender
   (add-watch ref-store :changes render-app!)
   (println "app started!"))
 
-(set! (.-onload js/window) -main!)
+(set! (.-onload js/window) main!)
 
 ; this function handles code updates
 (defn on-jsload! []
