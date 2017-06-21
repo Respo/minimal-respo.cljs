@@ -1,13 +1,11 @@
 
 ; defcomp is a macro, others are functions
 (ns app.main
-  (:require-macros [respo.macros :refer [defcomp]])
+  (:require-macros [respo.macros :refer [defcomp <> div span]])
   (:require [respo.core :refer [render! clear-cache!]]
             [respo.cursor :refer [mutate with-cursor]]
             [respo-ui.style :as ui]
-            [respo.alias :refer [div]]
-            [respo.comp.text :refer [comp-text]]
-            [respo.comp.space :refer [comp-space]]))
+            [respo.comp.space :refer [comp-space =<]]))
 
 ; where you put data
 (defonce *store
@@ -35,19 +33,19 @@
   (dispatch! :inc 1))
 
 ; button component, defined with a macro
-(defcomp comp-button [text]
+(defcomp comp-button (text)
   (div {:style ui/button
         ; event handler
         :event {:click on-click}}
-    (comp-text text nil)))
+    (<> span text nil)))
 
 ; container component
-(defcomp comp-container [store]
+(defcomp comp-container (store)
   (div {}
     ; insert text
-    (comp-text (:point store) nil)
-    ; some spaces
-    (comp-space 8 nil)
+    (<> span (:point store) nil)
+    ; some spaces, actually (comp 8 nil)
+    (=< 8 nil)
     ; calling child component, try a parameter
     (comp-button "inc")))
 
@@ -58,14 +56,13 @@
   (let [target (.querySelector js/document "#app")
         ; render component tree into virtual DOM tree
         app (comp-container @*store)]
-    (render! app target dispatch!)))
+    (render! target app dispatch!)))
 
 (defn main! []
-  (enable-console-print!)
   (render-app!)
   ; watch updates and do rerender
   (add-watch *store :changes render-app!)
-  (println "app started!"))
+  (println "App started!"))
 
 (set! (.-onload js/window) main!)
 
