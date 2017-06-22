@@ -2,14 +2,13 @@
   "name": "minimal-respo",
   "version": "0.1.0",
   "description": "Minimal Respo App ----",
-  "main": "webpack.config.js",
   "scripts": {
     "compile": "shadow-cljs compile app",
+    "build": "mkdir -p target && yarn del && yarn compile && yarn serve",
     "watch": "shadow-cljs watch app",
-    "html": "mkdir -p target && cp assets/index.html target/",
+    "html": "cp assets/index.html target/",
     "serve": "yarn html && http-server target/",
-    "del": "rm -r target/*",
-    "compile": "yarn del && yarn compile && yarn serve"
+    "del": "rm -fr target/*"
   },
   "repository": {
     "type": "git",
@@ -28,7 +27,6 @@
     "http-server": "^0.10.0",
     "shadow-cljs": "^0.12.0",
     "webpack": "^3.0.0",
-    "webpack-dev-server": "^2.5.0",
-    "ws": "^3.0.0"
+    "webpack-dev-server": "^2.5.0"
   }
 }
