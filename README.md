@@ -18,7 +18,7 @@ Run in development:
 
 ```bash
 yarn
-yarn dev
+yarn watch
 # another tty
 yarn serve # web server on localhost:8080
 ```

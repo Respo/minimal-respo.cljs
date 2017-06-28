@@ -7,4 +7,5 @@
                 :asset-path "."
                 :target :browser
                 :modules {:main {:entries [app.main]}}
-                :devtools {:after-load app.main/reload!}}}}
+                :devtools {:after-load app.main/reload!
+                           :preloads [shadow.cljs.devtools.client.hud]}}}}
