@@ -3,7 +3,7 @@
 (ns app.main
   (:require-macros [respo.macros :refer [defcomp <> div span]])
   (:require [respo.core :refer [render! clear-cache!]]
-            [respo.cursor :refer [mutate with-cursor]]
+            [respo.cursor :refer [mutate]]
             [respo-ui.style :as ui]
             [respo.comp.space :refer [comp-space =<]]))
 
