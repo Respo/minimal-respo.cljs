@@ -24,7 +24,7 @@
 ; connect user actions to updater
 (defn dispatch! [op op-data]
   ; use reset! and it triggers watchers
-  (reset! *store (updater @*store op op-data)))
+  (swap! *store updater op op-data))
 
 ; component definitions
 
@@ -33,14 +33,14 @@
   (dispatch! :inc 1))
 
 ; button component, defined with a macro
-(defcomp comp-button (text)
+(defcomp comp-button [text]
   (div {:style ui/button
         ; event handler
         :on {:click on-click}}
     (<> span text nil)))
 
 ; container component
-(defcomp comp-container (store)
+(defcomp comp-container [store]
   (div {}
     ; insert text
     (<> span (:point store) nil)
