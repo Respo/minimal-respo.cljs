@@ -20,7 +20,7 @@ Run in development:
 yarn
 yarn watch
 # another tty
-yarn serve # web server on localhost:8080
+yarn dev # web server on localhost:8080
 ```
 
 Compile project:

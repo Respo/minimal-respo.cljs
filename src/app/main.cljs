@@ -5,7 +5,7 @@
   (:require [respo.core :refer [render! clear-cache!]]
             [respo.cursor :refer [mutate]]
             [respo-ui.style :as ui]
-            [respo.comp.space :refer [comp-space =<]]))
+            [respo.comp.space :refer [=<]]))
 
 ; where you put data
 (defonce *store
