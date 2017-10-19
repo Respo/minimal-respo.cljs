@@ -12,24 +12,24 @@ This project is built on top of [shadow-cljs](https://github.com/thheller/shadow
 
 ### How to run it
 
-* Install [Java](https://support.apple.com/kb/dl1572?locale=en_HK) or [`node-jre`](https://www.npmjs.com/package/node-jre)
+> This example depends on Java, Node.js and Yarn.
 
 Run in development:
 
 ```bash
 yarn
 yarn watch
-# another tty
+# another terminal
 yarn dev # web server on localhost:8080
 ```
 
 Compile project:
 
 ```bash
-yarn compile # web server on localhost:8080
+yarn compile
 ```
 
-You should see this http://repo.respo.site/minimal-respo/ .
+You should see a page like this http://repo.respo.site/minimal-respo/ .
 
 ### License
 
