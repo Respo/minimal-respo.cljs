@@ -1,8 +1,7 @@
 
-; defcomp is a macro, others are functions
 (ns app.main
-  (:require-macros [respo.macros :refer [defcomp <> div span]])
   (:require [respo.core :refer [render! clear-cache!]]
+            [respo.macros :refer [defcomp <> div span]]
             [respo.cursor :refer [mutate]]
             [respo-ui.style :as ui]
             [respo.comp.space :refer [=<]]))

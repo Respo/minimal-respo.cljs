@@ -2973,9 +2973,9 @@ shadow-cljs-jar@^0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/shadow-cljs-jar/-/shadow-cljs-jar-0.10.0.tgz#9895e6e5ccfde1c7b673737b1dfd9149194b644f"
 
-shadow-cljs@^2.0.25:
-  version "2.0.25"
-  resolved "https://registry.yarnpkg.com/shadow-cljs/-/shadow-cljs-2.0.25.tgz#63eedc446ff0b44557aa14507d6149627fc1b626"
+shadow-cljs@^2.0.41:
+  version "2.0.41"
+  resolved "https://registry.yarnpkg.com/shadow-cljs/-/shadow-cljs-2.0.41.tgz#bb5e53ecaededea592f663de8d6fbe728f305748"
   dependencies:
     babel-core "^6.26.0"
     babel-preset-env "^1.6.0"
@@ -2983,6 +2983,7 @@ shadow-cljs@^2.0.25:
     node-libs-browser "^2.0.0"
     readline-sync "^1.4.7"
     shadow-cljs-jar "^0.10.0"
+    signal-exit "^3.0.2"
     source-map-support "^0.4.15"
     ws "^3.0.0"
 
@@ -2996,7 +2997,7 @@ shebang-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
 
-signal-exit@^3.0.0:
+signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
