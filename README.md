@@ -18,9 +18,8 @@ Run in development:
 
 ```bash
 yarn
-yarn watch
-# another terminal
-yarn dev # web server on localhost:8080
+yarn html
+yarn watch # web server on localhost:7000
 ```
 
 Compile project:

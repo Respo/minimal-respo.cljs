@@ -3,7 +3,7 @@
   (:require [respo.core :refer [render! clear-cache!]]
             [respo.macros :refer [defcomp <> div span]]
             [respo.cursor :refer [mutate]]
-            [respo-ui.style :as ui]
+            [respo-ui.core :as ui]
             [respo.comp.space :refer [=<]]))
 
 ; where you put data
@@ -28,7 +28,7 @@
 ; component definitions
 
 ; event handler to call dispatch!
-(defn on-click [e dispatch!]
+(defn on-click [e dispatch! mutate!]
   (dispatch! :inc 1))
 
 ; button component, defined with a macro
@@ -36,13 +36,13 @@
   (div {:style ui/button
         ; event handler
         :on {:click on-click}}
-    (<> span text nil)))
+    (<> text)))
 
 ; container component
 (defcomp comp-container [store]
   (div {}
     ; insert text
-    (<> span (:point store) nil)
+    (<> (:point store))
     ; some spaces, actually (comp 8 nil)
     (=< 8 nil)
     ; calling child component, try a parameter

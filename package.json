@@ -8,7 +8,6 @@
     "watch": "shadow-cljs watch app",
     "html": "cp assets/index.html target/",
     "serve": "http-server target/",
-    "dev": "yarn html && http-server target/",
     "del": "rm -fr target/*"
   },
   "repository": {
@@ -25,9 +24,7 @@
   },
   "homepage": "https://github.com/Respo/minimal-respo#readme",
   "devDependencies": {
-    "http-server": "^0.10.0",
-    "shadow-cljs": "^2.0.41",
-    "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.2"
+    "http-server": "^0.11.1",
+    "shadow-cljs": "^2.0.146"
   }
 }
