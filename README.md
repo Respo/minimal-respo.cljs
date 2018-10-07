@@ -6,7 +6,7 @@ A standalone exmaple sorted out from: https://github.com/Respo/respo-examples
 
 By reading this demo you can learn how to use Respo.
 
-For docs, please read http://respo.site/
+For docs, please read http://respo-mvc.org/
 
 This project is built on top of [shadow-cljs](https://github.com/thheller/shadow-cljs).
 
@@ -28,7 +28,7 @@ Compile project:
 yarn compile
 ```
 
-You should see a page like this http://repo.respo.site/minimal-respo/ .
+You should see a page like this http://repo.respo-mvc.org/minimal-respo/ .
 
 ### License
 
