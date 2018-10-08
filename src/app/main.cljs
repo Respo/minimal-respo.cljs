@@ -35,7 +35,7 @@
 (defcomp comp-button [text]
   (div {:style ui/button
         ; event handler
-        :on {:click on-click}}
+        :on-click on-click}
     (<> text)))
 
 ; container component
