@@ -1,7 +1,6 @@
 
 (ns app.main
-  (:require [respo.core :refer [render! clear-cache!]]
-            [respo.macros :refer [defcomp <> div span]]
+  (:require [respo.core :refer [defcomp <> div span render! clear-cache!]]
             [respo.cursor :refer [mutate]]
             [respo-ui.core :as ui]
             [respo.comp.space :refer [=<]]))
@@ -62,8 +61,6 @@
   ; watch updates and do rerender
   (add-watch *store :changes render-app!)
   (println "App started!"))
-
-(set! (.-onload js/window) main!)
 
 ; this function handles code updates
 (defn reload! []
