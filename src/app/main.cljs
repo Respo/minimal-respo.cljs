@@ -42,7 +42,7 @@
   (div {}
     ; insert text
     (<> (:point store))
-    ; some spaces, actually (comp 8 nil)
+    ; some spaces, actually (comp-space 8 nil)
     (=< 8 nil)
     ; calling child component, try a parameter
     (comp-button "inc")))
