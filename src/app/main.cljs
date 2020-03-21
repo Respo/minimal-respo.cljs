@@ -1,7 +1,6 @@
 
 (ns app.main
-  (:require [respo.core :refer [defcomp <> div span render! clear-cache!]]
-            [respo.cursor :refer [mutate]]
+  (:require [respo.core :refer [defcomp <> >> div span render! clear-cache!]]
             [respo-ui.core :as ui]
             [respo.comp.space :refer [=<]]))
 
@@ -9,20 +8,25 @@
 (defonce *store
   (atom
     {:point 0
-     :states {}}))
+     :states {:cursor []}}))
 
 ; pure function to update store
 (defn updater [store op op-data]
   ; use `case` to detect action types
   (case op
-    :states (update store :states (mutate op-data))
+    ; handle states update
+    :states (let [[cursor new-state] op-data]
+              (assoc-in store (concat [:states] cursor [:data]) new-state))
     :inc (update store :point (fn [point] (+ point op-data)))
     store))
 
 ; connect user actions to updater
 (defn dispatch! [op op-data]
   ; use reset! and it triggers watchers
-  (swap! *store updater op op-data))
+  (if (vector? op)
+    ; provide syntax sugar states
+    (recur :states [op op-data])
+    (swap! *store updater op op-data)))
 
 ; component definitions
 
