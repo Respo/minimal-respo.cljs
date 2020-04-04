@@ -7,7 +7,6 @@
     "build": "mkdir -p target && yarn del && yarn compile && yarn serve",
     "watch": "shadow-cljs watch app",
     "html": "cp assets/index.html target/",
-    "serve": "http-server target/",
     "del": "rm -fr target/*"
   },
   "repository": {
@@ -24,7 +23,6 @@
   },
   "homepage": "https://github.com/Respo/minimal-respo#readme",
   "devDependencies": {
-    "http-server": "^0.12.1",
-    "shadow-cljs": "^2.8.93"
+    "shadow-cljs": "^2.8.94"
   }
 }
