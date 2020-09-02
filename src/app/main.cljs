@@ -67,7 +67,7 @@
   (println "App started!"))
 
 ; this function handles code updates
-(defn reload! []
+(defn ^:dev/after-load reload! []
   ; clear rendering caches of virtual DOM
   (clear-cache!)
   ; rerender with diff/patch without rendering caches of virtual DOM
